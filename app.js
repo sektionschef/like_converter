@@ -14,7 +14,7 @@ var credentials = require('./credentials/credentials.js');
 //	orange: digital OUT Pin 9
 
 // -------------- VARIABLES -----------------
-var feed_username = "rosenbauergroup"; //username
+var feed_username = "ambuzzador"; //username
 var first_rotation = 0;
 var second_rotation = 181;
 var pause_rotation = 3000;
@@ -34,13 +34,16 @@ function arduinoReady(err) {
 }
 
 
-function fire() {
+function fire() { //first turn
     board.servoWrite(ServoPin,first_rotation);
     console.log('first fire, wait.');
-    setTimeout(function() {
-		console.log('second fire!');
-		board.servoWrite(ServoPin,second_rotation);
-    }, pause_rotation);
+    setTimeout(secondfire(), pause_rotation);
+}
+
+
+function secondfire() { //second turn
+	console.log('second fire!');
+	board.servoWrite(ServoPin,second_rotation);
 }
 
 
