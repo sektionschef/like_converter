@@ -28,23 +28,23 @@ function arduinoReady(err) {
 //	board.servoWrite(ServoPin,90);
 
 
-var arr = [];
-for (var i=1; i<=10; i++) {
-	arr[i] = i;
+	var arr = [];
+	for (var i=1; i<=10; i++) {
+		arr[i] = i;
+	}
+
+	async.eachSeries(arr, function (anything, callback) {async.series([
+	//	function (cally){setTimeout(function(){board.digitalWrite(13, board.HIGH);console.log(anything+". LED ON");cally()},pause_finished)},
+		function (cally){setTimeout(function(){board.servoWrite(ServoPin,first_rotation);console.log(anything+". first fire");cally()},pause_finished)}, //servo write
+	//	function (cally){setTimeout(function(){board.digitalWrite(13, board.LOW);console.log(anything+". LED OFF");cally()},pause_rotation)},
+		function (cally){setTimeout(function(){board.servoWrite(ServoPin,second_rotation);console.log(anything+". secondary fire");cally()},pause_finished)}, //servo write
+		function (cally){callback();cally();}
+	])}, function (err) {
+	  if (err) { throw err; }
+	  console.log('Success');
+	});
+
 }
-
-async.eachSeries(arr, function (anything, callback) {async.series([
-//	function (cally){setTimeout(function(){board.digitalWrite(13, board.HIGH);console.log(anything+". LED ON");cally()},pause_finished)},
-	function (cally){setTimeout(function(){board.servoWrite(ServoPin,first_rotation);console.log(anything+". first fire");cally()},pause_finished)}, //servo write
-//	function (cally){setTimeout(function(){board.digitalWrite(13, board.LOW);console.log(anything+". LED OFF");cally()},pause_rotation)},
-	function (cally){setTimeout(function(){board.servoWrite(ServoPin,second_rotation);console.log(anything+". secondary fire");cally()},pause_finished)}, //servo write
-	function (cally){callback();cally();}
-])}, function (err) {
-  if (err) { throw err; }
-  console.log('Success');
-});
-
-
 
 
 // HELPER
