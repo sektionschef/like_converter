@@ -79,7 +79,7 @@ function trigger() {
 //				console.log('file read: ' + data);
 				var count_minus = data;
 // CHECK IT
-				if (count>count_minus) { 
+				if (count>count_minus) {
 					console.log("aktuelle Likes ("+ count + ") größer als Likes zuvor (" + count_minus + ")");
 					var diff = count-count_minus
 					var arr = [];

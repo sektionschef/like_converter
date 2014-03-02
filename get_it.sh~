@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+curl "https://graph.facebook.com/ambuzzador/feed?access_token=409382465828898|Q54JMw4CDIzdHdk9GBVHkQGeGrM&fields=likes.summary(true)" > output.json

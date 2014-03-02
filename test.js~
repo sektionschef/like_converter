@@ -1,0 +1,27 @@
+
+// needs cron
+var cronJob = require('cron').CronJob;
+
+var count_minus = 0
+var count = 10
+
+
+
+
+new cronJob('*/1 * * * *', function(){
+    console.log('You will see this message every minute');
+
+
+	//for (var count=0; count<6; count++) {
+		if (count>count_minus) {
+	//		console.log(count + " größer als " + count_minus);
+			var diff = count-count_minus
+			for (z=1; z<=diff; z++) 
+				console.log("I schiaß a " + z + ". moi");
+		} else {
+	//		console.log(count + " kleiner gleich " + count_minus);
+		}
+	//}
+
+}, null, true); //keine ahnung was das null und das true machen.
+	

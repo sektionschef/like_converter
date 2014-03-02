@@ -1,6 +1,6 @@
 
 var first_rotation = 0;
-var second_rotation = 181; //181
+var second_rotation = 0; //181
 var pause_rotation = 3000;
 var pause_finished = 2000;
 
