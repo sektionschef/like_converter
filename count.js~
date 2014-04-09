@@ -1,9 +1,0 @@
-
-
-var diff = 8-5 ;
-//console.log(diff);
-var arr = [];
-for (var i=1; i<=diff; i++) {
-	arr[i] = i;
-	console.log(arr);
-}
